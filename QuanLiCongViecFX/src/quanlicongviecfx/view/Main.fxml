@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="790.0" style="-fx-background-color: #a7cbd5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quanlicongviecfx.view.MainController">
+    <children>
+      <VBox layoutX="640.0" layoutY="13.0" prefHeight="170.0" prefWidth="143.0" style="-fx-background-color: #e1fae4;" AnchorPane.topAnchor="13.0">
+         <children>
+            <Button fx:id="btnAdd" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#btnAdd_Click" text="Thêm">
+               <VBox.margin>
+                  <Insets left="29.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnDelete" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#btnDelete_Click" text="Xóa">
+               <VBox.margin>
+                  <Insets left="29.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnEdit" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#btnEdit_Click" text="Sửa">
+               <VBox.margin>
+                  <Insets left="29.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children></VBox>
+      <VBox layoutX="8.0" layoutY="13.0" prefHeight="170.0" prefWidth="122.0" style="-fx-background-color: #e1fae4;" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="13.0">
+         <children>
+              <Label fx:id="label" minHeight="30.0" minWidth="60.0" text="ID">
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="label2" minHeight="30.0" minWidth="60.0" text="Tên công việc">
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="label3" minHeight="30.0" minWidth="60.0" text="Độ ưu tiên">
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="label1" minHeight="30.0" minWidth="60.0" text="Thời gian bắt đầu">
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="label4" minHeight="30.0" minWidth="60.0" text="Thời gian kết thúc">
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="338.0" layoutY="13.0" prefHeight="170.0" prefWidth="129.0" style="-fx-background-color: #e1fae4;" AnchorPane.topAnchor="13.0">
+         <children>
+            <Label fx:id="label12" minHeight="30.0" minWidth="60.0" text="Khối lượng hoàn thành" />
+            <Label fx:id="label21" minHeight="30.0" minWidth="60.0" text="Ghi chú" />
+         </children>
+      </VBox>
+      <VBox layoutX="130.0" layoutY="13.0" prefHeight="170.0" prefWidth="208.0" style="-fx-background-color: #e1fae4;" AnchorPane.topAnchor="13.0">
+         <children>
+            <TextField fx:id="txtId" editable="false" maxWidth="175.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txtNameWork" maxWidth="175.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <ComboBox fx:id="cmbPriority" maxWidth="175.0" prefHeight="25.0" prefWidth="171.0" promptText="Choose priority">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ComboBox>
+            <DatePicker fx:id="txtStartTime" maxWidth="175.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </DatePicker>
+            <DatePicker fx:id="txtFinishTime" maxWidth="175.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </DatePicker>
+         </children>
+      </VBox>
+      <VBox layoutX="467.0" layoutY="13.0" prefHeight="170.0" prefWidth="174.0" style="-fx-background-color: #e1fae4;" AnchorPane.leftAnchor="467.0" AnchorPane.topAnchor="13.0">
+         <children>
+            <TextField fx:id="txtPerComplete" maxWidth="170.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextArea fx:id="txtNote" prefHeight="129.0" prefWidth="174.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" right="4.0" top="5.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+      </VBox>
+      <TableView fx:id="tableWork" layoutX="9.0" layoutY="191.0" prefHeight="326.0" prefWidth="775.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="43.0" text="ID" />
+          <TableColumn fx:id="colWork" prefWidth="88.0" text="Tên công việc" />
+            <TableColumn fx:id="colPriority" prefWidth="71.0" text="Độ ưu tiên" />
+            <TableColumn fx:id="colTimeStart" prefWidth="111.0" text="Thời gian bắt đầu" />
+            <TableColumn fx:id="colTimeFinish" prefWidth="108.0" text="Thời gian kết thúc" />
+            <TableColumn fx:id="colPerComplete" prefWidth="90.0" text="Hoàn thành %" />
+            <TableColumn fx:id="colLevelComplete" minWidth="0.0" prefWidth="110.0" text="Mức hoàn thành" />
+            <TableColumn fx:id="colNote" prefWidth="203.0" text="Ghi chú" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnStatistic" layoutX="317.0" layoutY="520.0" mnemonicParsing="false" onAction="#btnStatistic_Click" prefHeight="25.0" prefWidth="143.0" text="Thống kê" />
+    </children>
+</AnchorPane>
