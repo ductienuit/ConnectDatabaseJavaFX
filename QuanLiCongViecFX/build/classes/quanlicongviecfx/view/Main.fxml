@@ -119,6 +119,6 @@
             <TableColumn fx:id="colNote" prefWidth="203.0" text="Ghi chú" />
         </columns>
       </TableView>
-      <Button fx:id="btnStatistic" layoutX="317.0" layoutY="520.0" mnemonicParsing="false" onMouseClicked="#btnStatistic_Click" prefHeight="25.0" prefWidth="143.0" text="Thống kê" />
+      <Button fx:id="btnStatistic" layoutX="317.0" layoutY="520.0" mnemonicParsing="false" onAction="#btnStatistic_Click" prefHeight="25.0" prefWidth="143.0" text="Thống kê" />
     </children>
 </AnchorPane>

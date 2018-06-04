@@ -5,6 +5,7 @@
  */
 package quanlicongviecfx.view;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,7 +21,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -33,9 +37,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import javax.swing.JOptionPane;
 import quanlicongviecfx.modal.CongViec;
+import quanlicongviecfx.util.Resources;
 
 /**
  *
@@ -153,7 +161,7 @@ public class MainController implements Initializable {
                 return true;
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Loi UpdateData: "+ex);
+            JOptionPane.showMessageDialog(null, "Error UpdateData: "+ex);
         } finally {
             CloseConnect();
         }
@@ -325,8 +333,29 @@ public class MainController implements Initializable {
     }
     
     @FXML
-    void btnStatistic_Click(ActionEvent event) {
-        System.out.println("Chưa xử lí");
+    void btnStatistic_Click(ActionEvent event) throws IOException {
+        try{
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            
+            //Initialize fxml and create controller
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Statistic.fxml")); 
+            Parent pane = loader.load();
+
+            // Get the Controller from the FXMLLoader
+            StatisticController controller = loader.<StatisticController>getController();
+            // Set data in the controller
+            
+
+            Scene scene = new Scene(pane);   
+            stage.setTitle("Thống kê công việc");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) 
+        {
+            System.out.println(ex);
+        }
+
     }
     
     // <editor-fold defaultstate="collapsed" desc="Name Variables">
@@ -408,7 +437,7 @@ public class MainController implements Initializable {
     // </editor-fold>
 
     private CongViec getCongViecInControl() {
-        int barcodeWork= data.size()+1;
+        int barcodeWork= data.get(data.size()-1).getMacongviec()+1;
         String nameWork = "";
         String timeStart = "";
         String timeFinish = "";
